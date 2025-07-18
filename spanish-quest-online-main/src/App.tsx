@@ -13,6 +13,10 @@ import TenseDetail from "./pages/TenseDetail";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Grammar from "./pages/Grammar";
+import GrammarTopic from "./pages/GrammarTopic";
+import Auth from "./pages/Auth"
+
 
 const queryClient = new QueryClient();
 
@@ -26,6 +30,9 @@ const App = () => (
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/grammar" element={<Grammar />} />
+            <Route path="/grammar/:topicId" element={<GrammarTopic />} />
             <Route path="/word-of-the-day" element={<WordOfTheDay />} />
             <Route path="/practice" element={<Practice />} />
             <Route path="/tenses" element={<Tenses />} />
