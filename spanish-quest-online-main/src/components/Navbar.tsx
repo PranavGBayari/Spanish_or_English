@@ -1,8 +1,9 @@
-import { useState } from 'react';
+
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useAuth } from '../hooks/useAuth';
 import { Menu, X, BookOpen, User, LogOut } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
+import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,16 +25,16 @@ const Navbar = () => {
     { name: 'Tenses', path: '/tenses' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Login', path: '/auth' }, // Ensure this matches your auth route
+    { name: 'Login', path: '/auth' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+    const isActive = (path: string) => location.pathname === path;
 
   const handleSignOut = async () => {
     await signOut();
   };
 
-    // Get user's display name
+  // Get user's display name
   const getUserDisplayName = () => {
     if (!user) return '';
     
