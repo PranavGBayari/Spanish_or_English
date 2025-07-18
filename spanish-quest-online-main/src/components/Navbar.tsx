@@ -70,7 +70,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <BookOpen className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-800">¿Español o inglés?</span>
+            <span className="text-2xl font-bold text-gray-800">SpanishLearn</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -101,7 +101,7 @@ const Navbar = () => {
                         <Avatar className="h-8 w-8">
                           <AvatarImage src={user.user_metadata?.avatar_url} />
                           <AvatarFallback>
-                            {user.user_metadata?.full_name?.charAt(0) || user.email?.charAt(0) || 'U'}
+                            {getUserInitials()}
                           </AvatarFallback>
                         </Avatar>
                       </Button>
@@ -109,9 +109,7 @@ const Navbar = () => {
                     <DropdownMenuContent className="w-56" align="end" forceMount>
                       <div className="flex items-center justify-start gap-2 p-2">
                         <div className="flex flex-col space-y-1 leading-none">
-                          {user.user_metadata?.full_name && (
-                            <p className="font-medium">{user.user_metadata.full_name}</p>
-                          )}
+                          <p className="font-medium">{getUserDisplayName()}</p>
                           <p className="w-[200px] truncate text-sm text-muted-foreground">
                             {user.email}
                           </p>
@@ -171,7 +169,7 @@ const Navbar = () => {
                     <div className="space-y-2">
                       <div className="px-3 py-2">
                         <p className="text-sm font-medium text-gray-900">
-                          {user.user_metadata?.full_name || user.email}
+                          {getUserDisplayName()}
                         </p>
                         <p className="text-sm text-gray-500">{user.email}</p>
                       </div>
@@ -201,6 +199,5 @@ const Navbar = () => {
     </nav>
   );
 };
-
 
 export default Navbar;
