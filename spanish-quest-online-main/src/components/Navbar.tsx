@@ -33,6 +33,36 @@ const Navbar = () => {
     await signOut();
   };
 
+    // Get user's display name
+  const getUserDisplayName = () => {
+    if (!user) return '';
+    
+    // Try to get full name from user metadata
+    const fullName = user.user_metadata?.full_name;
+    if (fullName) {
+      // Return first name only
+      return fullName.split(' ')[0];
+    }
+    
+    // Fallback to email
+    return user.email?.split('@')[0] || 'User';
+  };
+
+  const getUserInitials = () => {
+    if (!user) return 'U';
+    
+    const fullName = user.user_metadata?.full_name;
+    if (fullName) {
+      const names = fullName.split(' ');
+      if (names.length >= 2) {
+        return names[0].charAt(0) + names[1].charAt(0);
+      }
+      return names[0].charAt(0);
+    }
+    
+    return user.email?.charAt(0)?.toUpperCase() || 'U';
+  };
+
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
