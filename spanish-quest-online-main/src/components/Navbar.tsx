@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <BookOpen className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-800">SpanishLearn</span>
+            <span className="text-2xl font-bold text-gray-800">¿Español o inglés?</span>
           </Link>
 
           {/* Desktop Navigation */}
